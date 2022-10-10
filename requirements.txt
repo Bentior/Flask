@@ -1,2 +1,2 @@
-flask
-pymongo
+flask==2.2.2
+pymongo==4.2.0
