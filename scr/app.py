@@ -14,11 +14,11 @@ def todo():
 
     return render_template('flask_app.html', items=items)
 
-@app.route('/new', methods=['POST'])
-def new():
+@app.route('/post', methods=['POST'])
+def post():
 
     item_doc = {
-       # 'id': request.form['id'],
+        'id': request.form['id'],
         'string': request.form['string']
     }
     db.flask_db.insert_one(item_doc)

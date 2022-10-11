@@ -1,11 +1,13 @@
 <!doctype html>
 
-<form action="/new" method="POST">
+<form action="/post" method="POST">
     <input type="text" name="string"></input>
+    <input type="text" name="id"></input>
     <input type="submit" value="POST"></input>
 </form>>
 
 {% for item in items %}
+ <p>{{ item.id }}</p>>
  <p>{{ item.string }}</p>>
 
 {% endfor %}
