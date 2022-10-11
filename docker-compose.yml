@@ -1,5 +1,6 @@
 web:
    build: .
+   container_name: web_flask_app
    ports:
     - "5000:5000"
    volumes:
@@ -8,3 +9,4 @@ web:
       - db
 db:
   image: mongo:latest
+  container_name: mongodb_flask_app
