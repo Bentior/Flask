@@ -3,7 +3,7 @@ web:
    ports:
     - "5000:5000"
    volumes:
-    - .:/todo
+    - .:/flask_app
    links:
       - db
 db:

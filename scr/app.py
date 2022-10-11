@@ -4,15 +4,15 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 client = MongoClient('db', 27017)
-db = client.tododb
+db = client.flask_db
 
 @app.route('/')
 def todo():
 
-    _items = db.tododb.find()
+    _items = db.flask_db.find()
     items = [item for item in _items]
 
-    return render_template('todo.html', items=items)
+    return render_template('flask_app.html', items=items)
 
 @app.route('/new', methods=['POST'])
 def new():
@@ -21,7 +21,7 @@ def new():
        # 'id': request.form['id'],
         'string': request.form['string']
     }
-    db.tododb.insert_one(item_doc)
+    db.flask_db.insert_one(item_doc)
 
     return redirect(url_for("todo"))
 
