@@ -1,5 +1,7 @@
 FROM python
-ADD . /flask_app
 WORKDIR /flask_app
+COPY . ./
+EXPOSE 5000
 RUN pip install -r requirements.txt
-CMD ["python", "scr/app.py"]
+WORKDIR /flask_app/scr
+CMD ["python", "app.py"]
