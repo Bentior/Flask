@@ -6,13 +6,12 @@ app = Flask(__name__)
 client = MongoClient('db', 27017)
 db = client.flask_db
 
-@app.route('/')
-def todo():
+@app.route('/', methods=['GET'])
+def get():
 
-    _items = db.flask_db.find()
-    items = [item for item in _items]
+    results = db.flask_db.find()
 
-    return render_template('flask_app.html', items=items)
+    return render_template('flask_app.html', results=results), 200
 
 @app.route('/post', methods=['POST'])
 def post():
@@ -23,7 +22,7 @@ def post():
     }
     db.flask_db.insert_one(item_doc)
 
-    return redirect(url_for("todo"))
+    return redirect(url_for("get"))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
