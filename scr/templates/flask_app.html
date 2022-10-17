@@ -1,13 +1,42 @@
 <!doctype html>
 
-<form action="/post" method="POST">
+<h1 align="center">INSERT DATA</h1>
+    <form action="/post" method="POST">
     <input type="text" name="string"></input>
     <input type="text" name="id"></input>
     <input type="submit" value="POST"></input>
-</form>>
+</form>
+<hr>
+<h1 align="center">CURRENT DATABASE</h1>
+<style type="text/css">
+   TABLE {
+    width: 500px;
+    border: 3px solid #000000;
+   }
+   THEAD {
+    background: #DCDCDC  ;
+   }
+   TD {
+    padding: 3px;
+    text-align: left;
+   }
 
-{% for item in results %}
- <p>{{ item.id }}</p>>
- <p>{{ item.string }}</p>>
+ </style>
+<table>
+    <thead>
+		<tr>
+			<th>ID</th>
+            <th>STRING</th>
+		</tr>
+	</thead>
+    <tbody>
+        {% for item in results %}
+		<tr>
+			<td>{{ item.string }}</td>
+			<td>{{ item.id }}</td>
+		</tr>
+        {% endfor %}
+	</tbody>
+</table>
 
-{% endfor %}
+
