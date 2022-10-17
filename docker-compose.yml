@@ -10,3 +10,5 @@ web:
 db:
   image: mongo:latest
   container_name: mongodb_flask_app
+  ports:
+    - "3000:3000"
