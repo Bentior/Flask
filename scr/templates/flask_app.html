@@ -2,8 +2,8 @@
 
 <h1 align="center">INSERT DATA</h1>
     <form action="/post" method="POST">
-    <input type="text" name="string"></input>
     <input type="text" name="id"></input>
+    <input type="text" name="string"></input>
     <input type="submit" value="POST"></input>
 </form>
 <hr>
@@ -32,8 +32,8 @@
     <tbody>
         {% for item in results %}
 		<tr>
-			<td>{{ item.string }}</td>
 			<td>{{ item.id }}</td>
+			<td>{{ item.string }}</td>
 		</tr>
         {% endfor %}
 	</tbody>
